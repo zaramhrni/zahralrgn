@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post("/addUser", function () {
 });
+
 Route::prefix('data_user')->group(function () {
     Route::get("/", function () {
         $users = User::all();
@@ -95,25 +96,34 @@ Route::prefix('data_user')->group(function () {
         return redirect()->back()->with("status", "Berhasil Menghapus User & Saldo");
     })->name("data_user.delete");
 });
-// Route::prefix('barang')->group(function () {
-//     Route::get('/', function () {
-//     });
 
-//     Route::get('/add', function () {
-//     });
+Route::prefix('menu')->group(function () {
+    Route::get("/", function () {
+        $barangs = Barang::all();
 
-//     Route::post('/create', function () {
-//     });
+        return view("menu", [
+            "barangs" => $barangs
+        ]);
+    })->name("menu");
 
-//     Route::get('/edit/{id}', function () {
-//     });
+    Route::post("/add", function (Request $request) {
+        Barang::create($request->all());
 
-//     Route::put('/update/{id}', function () {
-//     });
+        return redirect()->back()->with("status", "Berhasil Menambahkan Menu");
+    })->name("menu.add");
 
-//     Route::get('/delete/{id}', function () {
-//     });
-// });
+    Route::put("/edit/{id}", function (Request $request, $id) {
+        Barang::find($id)->update($request->all());
+
+        return redirect()->back()->with("status", "Berhasil Mengedit Menu");
+    })->name("menu.edit");
+
+    Route::get("/delete/{id}", function ($id) {
+        Barang::find($id)->delete();
+
+        return redirect()->back()->with("status", "Berhasil Menghapus Menu");
+    })->name("menu.delete");
+});
 
 Route::get("topup", function () {
     $saldo = Saldo::where("user_id", Auth::user()->id)->first();
@@ -295,33 +305,7 @@ Route::prefix('transaksi')->group(function () {
     });
 });
 
-Route::prefix('menu')->group(function () {
-    Route::get("/", function () {
-        $barangs = Barang::all();
 
-        return view("menu", [
-            "barangs" => $barangs
-        ]);
-    })->name("menu");
-
-    Route::post("/add", function (Request $request) {
-        Barang::create($request->all());
-
-        return redirect()->back()->with("status", "Berhasil Menambahkan Menu");
-    })->name("menu.add");
-
-    Route::put("/edit/{id}", function (Request $request, $id) {
-        Barang::find($id)->update($request->all());
-
-        return redirect()->back()->with("status", "Berhasil Mengedit Menu");
-    })->name("menu.edit");
-
-    Route::get("/delete/{id}", function ($id) {
-        Barang::find($id)->delete();
-
-        return redirect()->back()->with("status", "Berhasil Menghapus Menu");
-    })->name("menu.delete");
-});
 
 
 Route::prefix('data_transaksi')->group(function () {

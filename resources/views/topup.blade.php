@@ -9,7 +9,7 @@ $page = 'Top Up';
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card" style="border-radius: 20px">
-                    <div class="card-header">Top Up</div>
+                    <div class="card-header" style="background-color: #8DA0F5; border-radius: 10px">Top Up</div>
 
                     <div class="card-body">
                         @if (session('status'))

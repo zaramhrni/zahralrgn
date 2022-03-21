@@ -8,8 +8,8 @@ $page = 'Home';
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card" style="background-color: #a5c6fa;border-radius:20px">
-                    <div class="card-header" style="color: white;font-weight:bold;font-size:20px">{{ __('Dashboard') }}
+                <div class="card" style="border-radius:15px">
+                    <div class="card-header" style="color: white;background-color: #5D73D5;font-weight:bold;font-size:20px;border-radius:10px">{{ __('Dashboard') }}
                     </div>
 
                     <div class="card-body">
@@ -32,9 +32,9 @@ $page = 'Home';
                         @if (Auth::user()->role_id === 4)
                             <ul>
                                 <li style="list-style-type:none"><a href="{{ route('topup') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">Top Up</a></li>
+                                        style="color: black;text-decoration:none;font-size:18px">Top Up</a></li>
                                 <li style="list-style-type:none"><a href="{{ route('transaksi') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">Jajan</a></li>
+                                        style="color: black;text-decoration:none;font-size:18px">Canteen</a></li>
                                 {{-- <li><a href="">Riwayat Transaksi</a></li> --}}
                             </ul>
                         @endif
@@ -56,7 +56,7 @@ $page = 'Home';
                                             <td>{{ $pengajuan->jumlah }}</td>
                                             <td>
                                                 <a href="{{ route('topup.setuju', ['transaksi_id' => $pengajuan->id]) }}"
-                                                    class="btn btn-success">
+                                                    class="btn btn-primary">
                                                     Accept
                                                 </a>
                                                 <a href="{{ route('topup.tolak', ['transaksi_id' => $pengajuan->id]) }}"
@@ -159,7 +159,7 @@ $page = 'Home';
                                                 <td>
                                                     @if ($jajan_by_invoice->status == 3)
                                                         <a href="{{ route('jajan.setuju', ['invoice_id' => $jajan_by_invoice->invoice_id]) }}"
-                                                            class="btn btn-success">
+                                                            class="btn btn-primary">
                                                             Accept
                                                         </a>
                                                         <a href="{{ route('jajan.tolak', ['invoice_id' => $jajan_by_invoice->invoice_id]) }}"

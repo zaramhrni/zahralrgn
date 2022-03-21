@@ -23,10 +23,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md  navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm" style="background-color: #101C51">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Fintech
+                <a class="navbar-brand" href="{{ url('/') }}" style="font-weight: bold; color: white">
+                    S-Wallet
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -49,18 +49,6 @@
                                     <a class="nav-link {{ $page == 'Home' ? 'active' : '' }}" aria-current="page"
                                         href="{{ route('home') }}">Home</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link {{ $page == 'Top Up' ? 'active' : '' }}"
-                                        href="{{ route('topup') }}">Top Up</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ $page == 'Jajan' ? 'active' : '' }}"
-                                        href="{{ route('transaksi') }}">Jajan</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ $page == 'Riwayat Transaksi' ? 'active' : '' }}"
-                                        href="">Riwayat Transaksi</a>
-                                </li> --}}
                             @endif
                             @if (Auth::user()->role_id === 3)
                                 <li class="nav-item">

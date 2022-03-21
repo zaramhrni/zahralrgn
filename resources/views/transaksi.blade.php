@@ -14,7 +14,7 @@ $page = 'Jajan';
         <div class="row mb-3">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-body bg-warning">
+                    <div class="card-body" style="background-color: #8DA0F5">
                         <h5>Balance: {{ $saldo->saldo }}</h5>
                     </div>
                 </div>
@@ -23,12 +23,12 @@ $page = 'Jajan';
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">Menu</div>
+                    <div class="card-header" style="background-color: #8570ec; font-weight: bold">Menu</div>
                     <div class="card-body">
                         <div class="row">
                             @foreach ($barangs as $barang)
-                                <div class="col col-md-3 mt-4">
-                                    <div class="card">
+                                <div class="col col-md-3 mt-4" >
+                                    <div class="card" style="border-color: black">
                                         <div class="card-body">
                                             <div class="card-title">{{ $barang->name }}</div>
                                             <div>
@@ -53,50 +53,49 @@ $page = 'Jajan';
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 mt-5">
-                <div class="card">
-                    <div class="card-header">Cart {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Item</th>
-                                    <th>Price</th>
-                                    <th>Qty</th>
-                                    <th>Total</th>
+        <br/>
+            <div class="card">
+                <div class="card-header" style="background-color: #8570ec; font-weight: bold">Cart {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($carts as $key => $cart)
+                                <tr >
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $cart->barang->name }}</td>
+                                    <td>{{ $cart->barang->price }}</td>
+                                    <td>{{ $cart->jumlah }}</td>
+                                    <td>{{ $cart->barang->price * $cart->jumlah }}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($carts as $key => $cart)
-                                    <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $cart->barang->name }}</td>
-                                        <td>{{ $cart->barang->price }}</td>
-                                        <td>{{ $cart->jumlah }}</td>
-                                        <td>{{ $cart->barang->price * $cart->jumlah }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="5">Total : {{ $total_cart }}</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ route('checkout') }}" class="btn btn-primary">Checkout</a>
-                    </div>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">Total : {{ $total_cart }}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ route('checkout') }}" class="btn btn-primary">Checkout</a>
                 </div>
             </div>
-            <div class="col-md-6 mt-5">
+        </div>
+        <br/>
+            <div class="container">
                 <div class="card">
-                    <div class="card-header">Checkout {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
-
+                    <div class="card-header" style="background-color: #8570ec; font-weight: bold">Checkout {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
@@ -130,5 +129,4 @@ $page = 'Jajan';
                 </div>
             </div>
         </div>
-    </div>
 @endsection

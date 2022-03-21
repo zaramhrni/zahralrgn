@@ -14,9 +14,9 @@ $page = 'Menu';
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #8570ec; font-weight: bold" >
                         <div class="row">
-                            <div class="col">
+                            <div class="col" >
                                 Menu
                             </div>
                             <div class="col d-flex justify-content-end">
@@ -70,7 +70,7 @@ $page = 'Menu';
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
@@ -91,7 +91,7 @@ $page = 'Menu';
                                         <td>{{ $barang->stock }}</td>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#edit-{{ $barang->id }}">
                                                 Edit
                                             </button>

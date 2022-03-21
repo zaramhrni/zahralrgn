@@ -39,9 +39,9 @@ class FirstSeeder extends Seeder
         ]);
 
         User::create([
-            "name" => "Nursyda",
-            "email" => "nusryfa@gmail.com",
-            "password" => Hash::make("nursyfa"),
+            "name" => "keren",
+            "email" => "keren@gmail.com",
+            "password" => Hash::make("keren"),
             "role_id" => $canteen->id
         ]);
 
@@ -52,32 +52,18 @@ class FirstSeeder extends Seeder
             "role_id" => $student->id
         ]);
 
+        $risol = Barang::create([
+            "name" => "Risol Mayo",
+            "price" => 3000,
+            "stock" => 15,
+            "desc" => "Risol isi mayonaise"
+        ]);
+
         $nasgor = Barang::create([
             "name" => "Nasi Goreng",
-            "price" => 7000,
+            "price" => 8000,
             "stock" => 10,
-            "desc" => "Nasi goreng + telur"
-        ]);
-
-        $basreng = Barang::create([
-            "name" => "Basreng",
-            "price" => 2000,
-            "stock" => 15,
-            "desc" => "Bakso goreng"
-        ]);
-
-        $burger = Barang::create([
-            "name" => "Burger",
-            "price" => 6000,
-            "stock" => 13,
-            "desc" => "Roti + daging + sayur"
-        ]);
-
-        $oasis = Barang::create([
-            "name" => "Oasis",
-            "price" => 2000,
-            "stock" => 10,
-            "desc" => "Air mineral"
+            "desc" => "Nasi Goreng Sosis"
         ]);
 
         $pucuk = Barang::create([
