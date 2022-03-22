@@ -14,16 +14,16 @@ $page = 'Data User';
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #8DA0F5">
                         <div class="row">
-                            <div class="col">
+                            <div class="col" style="font-weight: bold; color: white">
                                 Users Data
                             </div>
                             <div class="col d-flex justify-content-end">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#tambah">
-                                    Add User
+                                    Tambah User
                                 </button>
 
                                 <!-- Modal -->
@@ -112,14 +112,14 @@ $page = 'Data User';
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered border-primary">
+                        <table class="table table-bordered border-dark table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
-                                    <th>Balance</th>
+                                    <th>Saldo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -133,7 +133,7 @@ $page = 'Data User';
                                         <td>{{ $user->role->id == 4 ? $user->saldo->saldo : '-' }}</td>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#edit-{{ $user->id }}">
                                                 Edit
                                             </button>
@@ -223,7 +223,7 @@ $page = 'Data User';
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            Are you sure you want to delete {{ $user->name }}?
+                                                            Apakah anda yakin menghapus {{ $user->name }}?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

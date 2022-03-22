@@ -14,16 +14,16 @@ $page = 'Menu';
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" style="background-color: #8570ec; font-weight: bold" >
+                    <div class="card-header" style="background-color: #64B9F0; font-weight: bold" >
                         <div class="row">
-                            <div class="col" >
+                            <div class="col" style="color: white" >
                                 Menu
                             </div>
                             <div class="col d-flex justify-content-end">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#tambah">
-                                    Add Menu
+                                    Tambah Menu
                                 </button>
 
                                 <!-- Modal -->
@@ -32,7 +32,7 @@ $page = 'Menu';
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Tambah Menu</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -42,6 +42,10 @@ $page = 'Menu';
                                                     <div class="form-group">
                                                         <label>Name</label>
                                                         <input type="text" class="form-control" name="name">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="formFile" class="form-label">Default file input example</label>
+                                                        <input class="form-control" type="file" id="formFile" name="image">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Description</label>
@@ -70,11 +74,12 @@ $page = 'Menu';
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered border-dark table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
                                     <th>Menu</th>
+                                    <th>Gambar</th>
                                     <th>Description</th>
                                     <th>Price</th>
                                     <th>Stock</th>
@@ -86,6 +91,10 @@ $page = 'Menu';
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $barang->name }}</td>
+                                        <td>
+                                            <img width="100" height="75" src={{ asset('assets/images/' . $barang->image) }}
+                                                alt="not found" />
+                                        </td>
                                         <td>{{ $barang->desc }}</td>
                                         <td>{{ $barang->price }}</td>
                                         <td>{{ $barang->stock }}</td>
@@ -116,6 +125,11 @@ $page = 'Menu';
                                                                     <label>Name</label>
                                                                     <input type="text" class="form-control" name="name"
                                                                         value="{{ $barang->name }}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="formFile" class="form-label">Select Image</label>
+                                                                    <input class="form-control" type="file" id="formFile"
+                                                                        name="image">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Description</label>
@@ -156,12 +170,12 @@ $page = 'Menu';
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Delete Menu
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Menu
                                                                 {{ $barang->name }}</h5>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <div class="modal-body"> Are you sure you want to delete
+                                                        <div class="modal-body"> Apakah anda yakin menghapus
                                                             {{ $barang->name }}?
                                                         </div>
                                                         <div class="modal-footer">

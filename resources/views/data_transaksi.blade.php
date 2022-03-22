@@ -14,10 +14,10 @@ $page = 'Data Transaksi';
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #8DA0F5">
                         <div class="row">
-                            <div class="col">
-                                Transaction
+                            <div class="col" style="font-weight: bold; color: white">
+                                Transaksi
                             </div>
                             <div class="col d-flex justify-content-end">
                             </div>
@@ -25,7 +25,7 @@ $page = 'Data Transaksi';
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered border-dark table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
@@ -57,7 +57,7 @@ $page = 'Data Transaksi';
                                         </td>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#detail-{{ $transaksi->invoice_id }}">
                                                 Detail
                                             </button>
@@ -69,7 +69,7 @@ $page = 'Data Transaksi';
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Detail
-                                                                Transacction #{{ $transaksi->invoice_id }}</h5>
+                                                                Transaksi #{{ $transaksi->invoice_id }}</h5>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>

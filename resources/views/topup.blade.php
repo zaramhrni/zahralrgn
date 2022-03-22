@@ -18,7 +18,7 @@ $page = 'Top Up';
                             </div>
                         @endif
 
-                        <h4>BALANCE : <b>{{ $saldo->saldo }}</b></h4>
+                        <h4>SALDO : <b>{{ $saldo->saldo }}</b></h4>
 
                         <form method="POST" action="{{ route('transaksi.create') }}">
                             @csrf

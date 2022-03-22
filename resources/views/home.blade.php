@@ -20,26 +20,32 @@ $page = 'Home';
                         @endif
 
                         @if (Auth::user()->role_id === 1)
-                            <ul>
-                                <li style="list-style-type:none"><a href="{{ route('data_user') }}"
+                            <div class="row">
+                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
+                                    <a href="{{ route('data_user') }}"
                                         style="color: white;text-decoration:none;font-size:18px">User
-                                        List</a></li>
-                                <li style="list-style-type: none"><a href="{{ route('data_transaksi') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">Transaction</a></li>
-                                {{-- <li><a href="">Riwayat Transaksi</a></li> --}}
-                            </ul>
+                                        List</a>
+                                </div>
+                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
+                                    <a href="{{ route('data_transaksi') }}"
+                                        style="color: white;text-decoration:none;font-size:18px">Transaksi</a>
+                                </div>
+                            </div>  
                         @endif
                         @if (Auth::user()->role_id === 4)
-                            <ul>
-                                <li style="list-style-type:none"><a href="{{ route('topup') }}"
-                                        style="color: black;text-decoration:none;font-size:18px">Top Up</a></li>
-                                <li style="list-style-type:none"><a href="{{ route('transaksi') }}"
-                                        style="color: black;text-decoration:none;font-size:18px">Canteen</a></li>
-                                {{-- <li><a href="">Riwayat Transaksi</a></li> --}}
-                            </ul>
+                            <div class="row">
+                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
+                                    <a href="{{ route('topup') }}"
+                                        style="color: white;text-decoration:none;font-size:18px">Top Up</a>
+                                </div>
+                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
+                                    <a href="{{ route('transaksi') }}"
+                                        style="color: white;text-decoration:none;font-size:18px">Canteen</a>
+                                </div>
+                            </div>  
                         @endif
                         @if (Auth::user()->role_id === 2)
-                            <table class="table table-bordered">
+                            <table class="table table-bordered border-dark table-striped">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -70,7 +76,7 @@ $page = 'Home';
                             </table>
                         @endif
                         @if (Auth::user()->role_id === 3)
-                            <table class="table table-bordered">
+                            <table class="table table-bordered border-dark table-striped">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -112,7 +118,7 @@ $page = 'Home';
                                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <table class="table table-bordered">
+                                                                    <table class="table table-bordered border-dark table-striped">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th>No.</th>
@@ -167,7 +173,7 @@ $page = 'Home';
                                                             Decline
                                                         </a>
                                                     @else
-                                                        Waiting for Payment
+                                                        Menunggu Pembayaran
                                                     @endif
                                                 </td>
                                             </tr>

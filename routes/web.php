@@ -306,8 +306,6 @@ Route::prefix('transaksi')->group(function () {
 });
 
 
-
-
 Route::prefix('data_transaksi')->group(function () {
     Route::get("/", function () {
         $details = Transaksi::where("type", 2)

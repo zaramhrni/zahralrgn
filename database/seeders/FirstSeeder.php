@@ -52,22 +52,9 @@ class FirstSeeder extends Seeder
             "role_id" => $student->id
         ]);
 
-        $risol = Barang::create([
-            "name" => "Risol Mayo",
-            "price" => 3000,
-            "stock" => 15,
-            "desc" => "Risol isi mayonaise"
-        ]);
-
-        $nasgor = Barang::create([
-            "name" => "Nasi Goreng",
-            "price" => 8000,
-            "stock" => 10,
-            "desc" => "Nasi Goreng Sosis"
-        ]);
-
         $pucuk = Barang::create([
             "name" => "Teh Pucuk",
+            "image" => "pucuk.jpg",
             "price" => 3500,
             "stock" => 10,
             "desc" => "Minuman teh"
@@ -90,8 +77,8 @@ class FirstSeeder extends Seeder
 
         //Belanja
         // Transaksi::create([
-        //     "user_id" => $wahyu->id,
-        //     "barang_id" => $burger->id,
+        //     "user_id" => $septy->id,
+        //     "barang_id" => $pucuk->id,
         //     "jumlah" => 2,
         //     "invoice_id" => "INV_001",
         //     "type" => 2,
@@ -99,8 +86,8 @@ class FirstSeeder extends Seeder
         // ]);
 
         // Transaksi::create([
-        //     "user_id" => $wahyu->id,
-        //     "barang_id" => $oasis->id,
+        //     "user_id" => $septy->id,
+        //     "barang_id" => $risol->id,
         //     "jumlah" => 2,
         //     "invoice_id" => "INV_001",
         //     "type" => 2,

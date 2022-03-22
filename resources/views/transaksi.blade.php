@@ -15,7 +15,7 @@ $page = 'Jajan';
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body" style="background-color: #8DA0F5">
-                        <h5>Balance: {{ $saldo->saldo }}</h5>
+                        <h5>Saldo: {{ $saldo->saldo }}</h5>
                     </div>
                 </div>
             </div>
@@ -23,13 +23,17 @@ $page = 'Jajan';
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header" style="background-color: #8570ec; font-weight: bold">Menu</div>
+                    <div class="card-header" style="background-color: #64B9F0; font-weight: bold; color: white">Menu</div>
                     <div class="card-body">
                         <div class="row">
                             @foreach ($barangs as $barang)
                                 <div class="col col-md-3 mt-4" >
                                     <div class="card" style="border-color: black">
                                         <div class="card-body">
+                                            <td>
+                                                <img width="150" height="80" style="margin: 20px" src={{ asset('assets/images/' . $barang->image) }}
+                                                    alt="not found" />
+                                            </td>
                                             <div class="card-title">{{ $barang->name }}</div>
                                             <div>
                                                 {{ $barang->desc }}
@@ -43,7 +47,7 @@ $page = 'Jajan';
                                             @csrf
                                             <input type="number" name="jumlah" class="form-control" value="1">
                                             <input type="hidden" name="barang_id" value="{{ $barang->id }}">
-                                            <button class="btn btn-primary mt-2" type="submit">Add on Cart</button>
+                                            <button class="btn btn-primary mt-2" type="submit">Tambah Ke Keranjang</button>
                                         </form>
                                     </div>
                                 </div>
@@ -55,14 +59,14 @@ $page = 'Jajan';
         </div>
         <br/>
             <div class="card">
-                <div class="card-header" style="background-color: #8570ec; font-weight: bold">Cart {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
+                <div class="card-header" style="background-color: #64B9F0; font-weight: bold; color: white">keranjang {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped" >
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Item</th>
-                                <th>Price</th>
+                                <th>Barang</th>
+                                <th>Harga</th>
                                 <th>Qty</th>
                                 <th>Total</th>
                             </tr>
@@ -93,14 +97,14 @@ $page = 'Jajan';
         <br/>
             <div class="container">
                 <div class="card">
-                    <div class="card-header" style="background-color: #8570ec; font-weight: bold">Checkout {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
+                    <div class="card-header" style="background-color: #64B9F0; font-weight: bold; color: white">Checkout {{ count($carts) > 0 ? '#' . $carts[0]->invoice_id : '' }}</div>
                     <div class="card-body">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Item</th>
-                                    <th>Price</th>
+                                    <th>Barang</th>
+                                    <th>Harga</th>
                                     <th>Qty</th>
                                     <th>Total</th>
                                 </tr>
@@ -124,7 +128,7 @@ $page = 'Jajan';
                         </table>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ route('bayar') }}" class="btn btn-primary">Buy</a>
+                        <a href="{{ route('bayar') }}" class="btn btn-primary">Beli</a>
                     </div>
                 </div>
             </div>
