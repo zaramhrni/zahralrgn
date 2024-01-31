@@ -20,11 +20,7 @@ $page = 'Home';
                         @endif
 
                         @if (Auth::user()->role_id === 1)
-                            <div class="row">
-                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
-                                    <a href="{{ route('data_user') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">User
-                                        List</a>
+                            
                                 </div>
                                 <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
                                     <a href="{{ route('data_transaksi') }}"
@@ -32,7 +28,7 @@ $page = 'Home';
                                 </div>
                             </div>  
                         @endif
-                        @if (Auth::user()->role_id === 4)
+                        @if (Auth::user()->role_id === 3)
                             <div class="row">
                                 <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
                                     <a href="{{ route('topup') }}"
@@ -44,7 +40,7 @@ $page = 'Home';
                                 </div>
                             </div>  
                         @endif
-                        @if (Auth::user()->role_id === 2)
+                        @if (Auth::user()->role_id === 1)
                             <table class="table table-bordered border-dark table-striped">
                                 <thead>
                                     <tr>
@@ -75,7 +71,7 @@ $page = 'Home';
                                 </tbody>
                             </table>
                         @endif
-                        @if (Auth::user()->role_id === 3)
+                        @if (Auth::user()->role_id === 2)
                             <table class="table table-bordered border-dark table-striped">
                                 <thead>
                                     <tr>

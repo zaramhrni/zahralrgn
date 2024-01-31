@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class FirstSeeder extends Seeder
+class dataSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,57 +19,50 @@ class FirstSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Role::create(["name" => "Administrator"]);
         $bank = Role::create(["name" => "Bank"]);
         $canteen = Role::create(["name" => "Canteen"]);
         $student = Role::create(["name" => "Student"]);
 
+        
         User::create([
-            "name" => "Fadiah",
-            "email" => "fadiah@gmail.com",
-            "password" => Hash::make("fadiah"),
-            "role_id" => $admin->id
-        ]);
-
-        User::create([
-            "name" => "Ira",
-            "email" => "ira@gmail.com",
-            "password" => Hash::make("ira"),
+            "name" => "jara",
+            "email" => "jara@gmail.com",
+            "password" => Hash::make("jara"),
             "role_id" => $bank->id
-        ]);
+        ]);  
 
         User::create([
-            "name" => "keren",
-            "email" => "keren@gmail.com",
-            "password" => Hash::make("keren"),
+            "name" => "ara",
+            "email" => "ara@gmail.com",
+            "password" => Hash::make("ara"),
             "role_id" => $canteen->id
         ]);
 
-        $septy = User::create([
-            "name" => "Septy",
-            "email" => "septy@gmail.com",
-            "password" => Hash::make("septy"),
+        $andi = User::create([
+            "name" => "zara",
+            "email" => "zara@gmail.com",
+            "password" => Hash::make("zara"),
             "role_id" => $student->id
         ]);
 
         $pucuk = Barang::create([
-            "name" => "Teh Pucuk",
-            "image" => "pucuk.jpg",
+            "name" => "Teh kotak",
+            "image" => "kotak.jpg",
             "price" => 3500,
             "stock" => 10,
             "desc" => "Minuman teh"
         ]);
 
         Saldo::create([
-            "user_id" => $septy->id,
-            "saldo" => 30000
+            "user_id" => $andi->id,
+            "saldo" => 300000
         ]);
 
         //Isi Saldo
         Transaksi::create([
-            "user_id" => $septy->id,
+            "user_id" => $andi->id,
             "barang_id" => null,
-            "jumlah" => 50000,
+            "jumlah" => 500000,
             "invoice_id" => "SAL_001",
             "type" => 1,
             "status" => 3
