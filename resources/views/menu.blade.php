@@ -14,14 +14,14 @@ $page = 'Menu';
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" style="background-color: #64B9F0; font-weight: bold" >
+                    <div class="card-header" style="background-color: #6f42c1; font-weight: bold" >
                         <div class="row">
                             <div class="col" style="color: white" >
                                 Menu
                             </div>
                             <div class="col d-flex justify-content-end">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#tambah">
                                     Tambah Menu
                                 </button>

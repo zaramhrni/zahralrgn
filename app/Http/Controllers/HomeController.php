@@ -28,7 +28,11 @@ class HomeController extends Controller
     {
         $pengajuans = Transaksi::where("type", 1)
                         ->where("status", 2)
-                        ->get();
+                        ->where( function($query) {
+                            $query->where('invoice_id', 'like','SAL_%')
+                            ->orWhere('invoice_id','like','TTN_%');
+                        })
+                        ->get();    
 
         $pengajuan_jajans = Transaksi::where("type", 2)
                         ->get();

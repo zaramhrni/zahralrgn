@@ -5,13 +5,7 @@ $page = 'Home';
 ?>
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card" style="border-radius:15px">
-                    <div class="card-header" style="color: white;background-color: #5D73D5;font-weight:bold;font-size:20px;border-radius:10px">{{ __('Dashboard') }}
-                    </div>
-
+    
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -20,63 +14,88 @@ $page = 'Home';
                         @endif
 
                         @if (Auth::user()->role_id === 1)
-                            
-                                </div>
-                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
-                                    <a href="{{ route('data_transaksi') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">Transaksi</a>
-                                </div>
-                            </div>  
-                        @endif
-                        @if (Auth::user()->role_id === 3)
-                            <div class="row">
-                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
-                                    <a href="{{ route('topup') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">Top Up</a>
-                                </div>
-                                <div class="card col" style="width: 100px; height: 100px; align-items:center; justify-content:center; margin:5px; background-color: #95B3ED">
-                                    <a href="{{ route('transaksi') }}"
-                                        style="color: white;text-decoration:none;font-size:18px">Canteen</a>
-                                </div>
-                            </div>  
-                        @endif
-                        @if (Auth::user()->role_id === 1)
-                            <table class="table table-bordered border-dark table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Name</th>
-                                        <th>Nominal</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <h2>Selamat Datang Jara!</h2>
+                        <p>Periksa Keadaan sistem Bank anda.</p>
+                        <!-- Display top-up and cash withdrawal requests -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Nominal</th>
+                                    <th>Verifikasi</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+
                                     @foreach ($pengajuans as $key => $pengajuan)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $pengajuan->user->name }}</td>
                                             <td>{{ $pengajuan->jumlah }}</td>
                                             <td>
-                                                <a href="{{ route('topup.setuju', ['transaksi_id' => $pengajuan->id]) }}"
-                                                    class="btn btn-primary">
-                                                    Accept
-                                                </a>
-                                                <a href="{{ route('topup.tolak', ['transaksi_id' => $pengajuan->id]) }}"
-                                                    class="btn btn-danger">
-                                                    Decline
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                            @if(Str::startsWith($pengajuan->invoice_id, 'SAL_'))
+                                                    <a href="{{ route('topup.setuju', ['transaksi_id' => $pengajuan->id]) }}"
+                                                        class="btn btn-primary">
+                                                        Accept
+                                                    </a>
+                                                    <a href="{{ route('topup.tolak', ['transaksi_id' => $pengajuan->id]) }}"
+                                                        class="btn btn-danger">
+                                                        Decline
+                                                    </a>
+                                                    @elseif (Str::startsWith($pengajuan->invoice_id, 'TTN_'))
+                                                    <a href="{{ route('tariktunai.setuju', ['transaksi_id' => $pengajuan->id]) }}"
+                                                        class="btn btn-primary">
+                                                        Accept
+                                                    </a>
+                                                    <a href="{{ route('tariktunai.tolak', ['transaksi_id' => $pengajuan->id]) }}"
+                                                        class="btn btn-danger">
+                                                        Decline
+                                                    </a>
+                                                    @else
+                                                    Unknown
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
+                                </div>
+                            
+                            </div>  
                         @endif
+                        @if (Auth::user()->role_id === 3)
+                        <div class="container px-4 px-lg-5 my-5">
+                            <div class="row gx-4 gx-lg-5 align-items-center">
+                                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{asset('assets/images/snack2.png')}}" alt="..." /></div>
+                                    <div class="col-md-6">
+                                        <h1 class="display-5 fw-bolder">Aneka snack</h1>
+                                        <div class="fs-5 mb-3">
+                                    </div>
+                                <p class="lead">Di sini kami menyediakan beraneka ragam snack,dengan harga pelajar.</p>
+                                <a class="btn btn-outline-dark mt-auto" href="{{ route('transaksi') }}">Jajan</a>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container px-4 px-lg-5 my-5 mt-auto">
+                        </div>
+                        @endif
+                        
                         @if (Auth::user()->role_id === 2)
-                            <table class="table table-bordered border-dark table-striped">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="card" style="border-radius:15px">
+                                    <div class="card-header" style="color: white;background-color: #5D73D5;font-weight:bold;font-size:20px;border-radius:10px">{{ __('Dashboard') }}
+                                </div>
+                                <div class="container">    
+                                    <table class="table table-bordered border-dark table-striped">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Name</th>
+                                        <th>Nama</th>
                                         {{-- <th>Nominal</th> --}}
                                         <th>Invoice ID</th>
                                         <th>Status</th>
